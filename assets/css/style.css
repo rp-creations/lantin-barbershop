@@ -1,0 +1,390 @@
+/* 
+ * LANTIN Barbershop Management System - Custom Styles
+ * Tailwind CSS is used as base, these are additional custom styles
+ */
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Custom classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Status badges */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-active {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.status-inactive {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+/* Card hover effects */
+.hover-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.hover-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #6366f1;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #6366f1;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Table row highlight */
+.table-row-highlight {
+    transition: background-color 0.2s ease;
+}
+
+.table-row-highlight:hover {
+    background-color: #f8fafc !important;
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    .print-only {
+        display: block !important;
+    }
+    
+    body {
+        background: rgb(210, 210, 255) !important;
+        color: black !important;
+    }
+    
+    .bg-white {
+        background: white !important;
+        box-shadow: none !important;
+    }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .mobile-stack {
+        flex-direction: column !important;
+    }
+    
+    .mobile-full-width {
+        width: 100% !important;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Form validation styles */
+.input-error {
+    border-color: #ef4444 !important;
+}
+
+.input-success {
+    border-color: #10b981 !important;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.success-message {
+    color: #10b981;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #374151;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.875rem;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Badge colors for different actions in logs */
+.badge-login { background-color: #dbeafe; color: #1e40af; }
+.badge-transaction { background-color: #dcfce7; color: #166534; }
+.badge-inventory { background-color: #fef3c7; color: #92400e; }
+.badge-barber { background-color: #f3e8ff; color: #6b21a8; }
+.badge-system { background-color: #f1f5f9; color: #334155; }
+
+/* LANTIN application design system: warm neutrals, charcoal, and restrained copper. */
+:root {
+    --app-bg: #f5f3ef;
+    --surface: #ffffff;
+    --surface-muted: #f8f7f4;
+    --ink: #252a2d;
+    --muted: #6b7174;
+    --line: #e5e2dc;
+    --accent: #8a5238;
+    --accent-hover: #70412d;
+    --sidebar: #20292e;
+    --sidebar-hover: #303b40;
+    --radius-card: 12px;
+    --shadow-card: 0 2px 8px rgba(37, 42, 45, 0.045);
+}
+
+html { background: var(--app-bg); }
+body {
+    background: var(--app-bg) !important;
+    color: var(--ink);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.fixed-header {
+    background: rgba(255, 255, 255, 0.97) !important;
+    border-color: var(--line) !important;
+    box-shadow: 0 1px 3px rgba(37, 42, 45, 0.04) !important;
+    backdrop-filter: blur(10px);
+}
+.fixed-header h1 { color: var(--ink) !important; letter-spacing: -0.035em; }
+.sidebar-toggle { min-width: 44px; min-height: 44px; }
+.fixed-header button[onclick*="showLogoutModal"] {
+    background: #f4ece7 !important;
+    color: var(--accent) !important;
+}
+.fixed-header button[onclick*="showLogoutModal"]:hover { background: #ead9cf !important; }
+
+.minimal-sidebar,
+.full-sidebar {
+    background: var(--sidebar) !important;
+    color: #f6f5f2 !important;
+    box-shadow: 4px 0 18px rgba(22, 28, 31, 0.12) !important;
+}
+.full-sidebar { border-right: 1px solid rgba(255, 255, 255, 0.08); }
+.full-sidebar .border-gray-700 { border-color: rgba(255, 255, 255, 0.12) !important; }
+.full-sidebar nav a,
+.minimal-sidebar nav a {
+    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+.full-sidebar nav a:hover,
+.minimal-sidebar nav a:hover { background: var(--sidebar-hover) !important; color: #fff !important; }
+.full-sidebar nav a.bg-gray-700,
+.minimal-sidebar nav a.bg-gray-700 {
+    background: var(--accent) !important;
+    color: #fff !important;
+}
+.full-sidebar nav a:focus-visible,
+.minimal-sidebar nav a:focus-visible,
+.fixed-header button:focus-visible {
+    outline: 3px solid #d5a58e;
+    outline-offset: 2px;
+}
+
+.main-content-wrapper main {
+    min-height: calc(100vh - 64px);
+    padding: clamp(16px, 2.5vw, 32px) !important;
+}
+.main-content-wrapper main > .fade-in,
+.main-content-wrapper main > .max-w-7xl,
+.main-content-wrapper main > .mx-3 {
+    max-width: 1440px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.main-content-wrapper main h1,
+.main-content-wrapper main h2,
+.main-content-wrapper main h3,
+.main-content-wrapper main h4 { color: var(--ink); letter-spacing: -0.02em; }
+.main-content-wrapper main h1,
+.main-content-wrapper main > div > h2:first-child { font-weight: 700; }
+.main-content-wrapper main p.text-gray-600,
+.main-content-wrapper main p.text-gray-500 { color: var(--muted); }
+
+/* Flat surfaces replace all Tailwind gradients in the authenticated modules. */
+.main-content-wrapper .bg-gradient-to-r,
+.main-content-wrapper .bg-gradient-to-b,
+.main-content-wrapper .bg-gradient-to-br {
+    background-image: none !important;
+    background-color: var(--surface) !important;
+}
+.main-content-wrapper .card,
+.main-content-wrapper main .bg-white.rounded-xl,
+.main-content-wrapper main .bg-white.rounded-lg,
+.main-content-wrapper main .bg-white.rounded-2xl {
+    background-color: var(--surface) !important;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card) !important;
+    box-shadow: var(--shadow-card) !important;
+}
+.main-content-wrapper main .shadow-lg,
+.main-content-wrapper main .shadow-xl { box-shadow: var(--shadow-card) !important; }
+.main-content-wrapper main .hover\:shadow-md:hover,
+.main-content-wrapper main .hover-card:hover {
+    box-shadow: 0 8px 22px rgba(37, 42, 45, 0.08) !important;
+    transform: translateY(-2px);
+}
+.main-content-wrapper main .card a.bg-blue-50,
+.main-content-wrapper main .card a.bg-green-50,
+.main-content-wrapper main .card a.bg-purple-50 {
+    background: #f7f4f1 !important;
+    border-left: 3px solid #c9a38f;
+}
+.main-content-wrapper main .card a.bg-blue-50:hover,
+.main-content-wrapper main .card a.bg-green-50:hover,
+.main-content-wrapper main .card a.bg-purple-50:hover { background: #efe7e1 !important; }
+.main-content-wrapper main .card a.bg-blue-50 .bg-blue-500,
+.main-content-wrapper main .card a.bg-green-50 .bg-green-500,
+.main-content-wrapper main .card a.bg-purple-50 .bg-purple-500 { background: var(--accent) !important; }
+
+.btn-primary,
+.main-content-wrapper main button.bg-blue-600 {
+    background: var(--accent) !important;
+    color: #fff !important;
+    border: 1px solid var(--accent) !important;
+    box-shadow: none !important;
+}
+.btn-primary:hover,
+.main-content-wrapper main button.bg-blue-600:hover {
+    background: var(--accent-hover) !important;
+    border-color: var(--accent-hover) !important;
+}
+.main-content-wrapper main button,
+.main-content-wrapper main a {
+    transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+.main-content-wrapper main button:focus-visible,
+.main-content-wrapper main a:focus-visible,
+.main-content-wrapper main input:focus-visible,
+.main-content-wrapper main select:focus-visible,
+.main-content-wrapper main textarea:focus-visible {
+    outline: 3px solid rgba(138, 82, 56, 0.32);
+    outline-offset: 2px;
+}
+
+.main-content-wrapper main input:not([type="checkbox"]):not([type="radio"]),
+.main-content-wrapper main select,
+.main-content-wrapper main textarea {
+    border-color: #d8d5cf;
+    border-radius: 8px;
+    background-color: #fff;
+}
+.main-content-wrapper main input::placeholder,
+.main-content-wrapper main textarea::placeholder { color: #929795; }
+
+.main-content-wrapper main table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.main-content-wrapper main table.inventory-table { min-width: 760px; }
+.main-content-wrapper main td:last-child,
+.main-content-wrapper main td span.rounded-full { white-space: nowrap; }
+.main-content-wrapper main thead th {
+    background: #f6f5f2 !important;
+    color: #5e6466 !important;
+    font-size: 0.7rem;
+    letter-spacing: 0.07em;
+}
+.main-content-wrapper main tbody tr { transition: background-color 140ms ease; }
+.main-content-wrapper main tbody tr:hover { background-color: #faf9f7 !important; }
+.main-content-wrapper main td,
+.main-content-wrapper main th { border-color: var(--line) !important; }
+
+.main-content-wrapper main .border-gray-100,
+.main-content-wrapper main .border-gray-200 { border-color: var(--line) !important; }
+.main-content-wrapper main .rounded-xl { border-radius: var(--radius-card); }
+.main-content-wrapper main canvas { max-width: 100%; }
+
+@media (max-width: 767px) {
+    .main-content-wrapper main { padding: 16px !important; }
+    .main-content-wrapper main .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+    .main-content-wrapper main .grid { min-width: 0; }
+    .main-content-wrapper main .shadow-lg { box-shadow: var(--shadow-card) !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
